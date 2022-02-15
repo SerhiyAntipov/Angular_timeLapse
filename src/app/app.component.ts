@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AppService } from './core/services/app/app.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,7 @@ import { AppService } from './core/services/app/app.service';
 })
 
 export class AppComponent implements OnInit, OnDestroy {
-  constructor(
-    private appService: AppService,
-  ) {}
+  constructor() {}
 
   ngOnInit() {}
 

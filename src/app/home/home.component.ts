@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {BehaviorSubject, Subject, Subscription} from "rxjs";
 import { takeUntil } from 'rxjs/operators';
-import { AppService } from '../core/services/app/app.service';
 import { CardInterface } from '../core/types/card.interface';
-import { MemStoreService } from '../core/services/mem-store/mem-store.service';
+
 
 @Component({
   selector: 'app-home',
@@ -257,10 +256,7 @@ export class HomeComponent implements OnInit {
 
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(
-    private appService: AppService,
-    private memStore: MemStoreService,
-  ) {
+  constructor() {
   }
 
   ngOnInit() {
