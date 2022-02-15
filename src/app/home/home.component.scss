@@ -1,0 +1,31 @@
+.backgroundWrapper {
+  min-width: 375px;
+  min-height: 100vh;
+  background-color: blue;
+  //background: url("../../assets/img/background.png"),  linear-gradient(to bottom, #cacaca, #7f9fbf);
+  background: linear-gradient(to right, #cacaca, #7f9fbf);
+  background-position: center top;
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.container-fluid{
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 1280px) {
+  .content{
+    max-width: 1000px;
+  }
+}

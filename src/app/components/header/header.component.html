@@ -1,0 +1,7 @@
+<header class="mainHeader" *ngIf="headerData">
+  <img class="headerLogo" src="{{headerData.img}}" alt="headerLogo">
+  <div class="headerText">
+    <p class="headerText_title">{{headerData.title | titlecase }}</p>
+    <p class="headerText_description">{{headerData.description}}</p>
+  </div>
+</header>

@@ -1,0 +1,7 @@
+<div class="categoryName" *ngIf="categoryData">
+  <img class="categoryName_img" src="{{categoryData.img}}" alt="img category name">
+  <p class="categoryName_title">{{categoryData.title.specialMarkup | uppercase }}
+    <span>{{categoryData.title.defaultMarkup | lowercase}}</span>
+  </p>
+</div>
+

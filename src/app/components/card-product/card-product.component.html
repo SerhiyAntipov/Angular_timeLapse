@@ -1,0 +1,73 @@
+<div *ngIf="cardData" class="card" [attr.data-testId]="cardData.cardId">
+  <div class="card_title">
+    <img src="{{cardData.userLogo}}" alt="user logo">
+    <p>{{cardData.userName != null ? cardData.userName : 'No User Name'}}</p>
+  </div >
+  <div *ngIf="cardData.video == null || cardData.video == '' ; else videoTpl"  class="card_body">
+    <img class="card_body_mainImg" src="{{cardData.img}}" alt="img">
+  </div>
+  <div class="card_footer">
+    <div class="card_footer_leftSide">
+      <p class="card_footer_likes">
+        <mat-icon class="icon color_yellow">favorite</mat-icon>
+        {{cardData.likes != null ? cardData.likes : '0'}}
+      </p>
+      <p class="card_footer_comments">
+        {{cardData.comments != null ? cardData.comments : '0'}}
+      </p>
+    </div>
+    <div class="card_footer_rightSide">
+      <button class="btn card_footer_btnFavorite" (click)="toggleFavorites(cardData)">
+        <mat-icon *ngIf="!cardData.favorites"  class="icon color_white">bookmark_border</mat-icon>
+        <mat-icon *ngIf="cardData.favorites || null"  class="icon color_yellow">bookmark</mat-icon>
+      </button>
+      <button class="btn card_footer_btnShare"
+        (click)="cardShare(cardData)"
+      ></button>
+
+      <label class="btn card_footer_detailsInfoLabel">
+        <input class="detailsInfo_input" type="checkbox"
+           (click)="showDetails(cardData)"
+           (click)="onAnimation90deg()"
+           (click)="onAnimationIncrease()"
+        >
+        <mat-icon class="icon color_white"
+            [@animation90deg]="animation90degState"
+        >more_horiz</mat-icon>
+      </label>
+    </div>
+  </div>
+  <div class="card_detailsInfo"
+     *ngIf="cardData.detailsInfoVisible"
+    [@animationIncrease]="animationIncreaseState"
+  >
+    <p class="card_detailsInfo_title" *ngIf="cardData.title">{{cardData.title}}</p>
+    <p class="card_detailsInfo_description" *ngIf="cardData.description">{{cardData.description}}</p>
+  </div>
+</div>
+
+<ng-template #videoTpl>
+  <div class="card_body">
+    <vg-player (onPlayerReady)="onPlayerReady($event)" class="player__vg vg">
+      <video #media
+             [vgMedia]="$any(media)"
+             [src]="cardData?.video"
+             [poster]="cardData?.img"
+             id="singleVideo" preload="auto"
+             webkit-playsinline playsinline>
+      </video>
+    </vg-player>
+    <div class="controls" (click)="playPause($event)">
+      <button *ngIf="vgApi?.state !== 'playing'" class="btn card_body_btnPlay" (click)="playClick()">
+        <mat-icon class="icon color_white">play_arrow</mat-icon>
+      </button>
+      <button class="card_body_btnVolume" (click)="soundOnOff()">
+        <mat-icon *ngIf="soundState" class="icon color_white">volume_up</mat-icon>
+        <mat-icon *ngIf="!soundState || null" class="icon color_white">volume_off</mat-icon>
+      </button>
+      <button class="card_body_btnPause" *ngIf="vgApi?.state == 'playing'" (click)="pauseClick()">
+        <mat-icon class="icon color_white">pause</mat-icon>
+      </button>
+    </div>
+  </div>
+</ng-template>

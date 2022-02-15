@@ -1,0 +1,12 @@
+<div class="backgroundWrapper container-fluid">
+    <app-header [headerData]="(headerData$ | async)"></app-header>
+    <app-category-name [categoryData]="(categoryData$ | async)"></app-category-name>
+    <!--  <app-category-name [categoryData]="(categoryData$.getValue())"></app-category-name>-->
+    <!-- <app-category-name [categoryData]="(categoryData$.next(1))"></app-category-name> -->
+    <!-- <app-category-name [categoryData]="(categoryDataSubscribe)"></app-category-name> -->
+  <div class="content container">
+    <ng-container *ngFor="let cardData of (cardData$ | async); index as index">
+        <app-card-product [cardData]="cardData" (playClickEvent)="playClick($event)" (soundOnOffEvent)="soundOnOff($event)" (toggleFavoritesEvent)="toggleFavorites($event)" (cardShareEvent)="cardShare($event)"></app-card-product>
+    </ng-container>
+  </div>
+</div>

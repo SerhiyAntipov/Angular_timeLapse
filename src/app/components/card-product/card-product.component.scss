@@ -1,0 +1,228 @@
+.card{
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: 70px;
+  overflow: hidden;
+  user-select: none;
+
+  .color{
+    &_yellow{
+      color: #f5e03a;
+    }
+    &_white{
+      color: #ffffff;
+    }
+  }
+
+  &_title{
+    display: flex;
+    padding-bottom: 20px;
+
+    img{
+      width: 37px;
+      height: 37px;
+    }
+    p{
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 37px;
+      color: #8062BB;
+      margin: 0 0 0 10px;
+    }
+  }
+
+  &_body{
+    position: relative;
+
+    .player__vg {
+      width: 100%;
+      video {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .controls {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &_mainImg{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &_btnPlay, &_btnPause, &_btnVolume{
+      display: block;
+      width: 55px;
+      height: 55px;
+      border-radius: 55px;
+      border: none;
+      background: #3002ae radial-gradient(#061f70 35%, #2c4081 70%);
+      position: absolute;
+      right: 90px;
+      bottom: 10px;
+      cursor: pointer;
+
+      &:hover{
+        background: #3002ae radial-gradient(#2c4081 35%, #061f70 70%);
+      }
+
+      .icon{
+        display: inline;
+        font-size: 28px;
+        vertical-align: bottom;
+        text-align: center;
+      }
+    }
+
+    &_btnVolume{
+      right: 10px;
+      bottom: 10px;
+    }
+  }
+
+  &_footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    .card_footer_leftSide, .card_footer_rightSide{
+      display: flex;
+    }
+
+    p{
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 40px;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .icon{
+      display: inline;
+      font-size: 28px;
+      vertical-align: bottom;
+      line-height: 40px;
+    }
+
+    &_likes{
+      padding-right: 20px;
+    }
+
+    &_comments{
+      position: relative;
+      padding-left: 35px;
+
+      &::after {
+        content: '';
+        background-position: center;
+        background-image: url("../../../assets/img/card/comments.svg");
+        background-repeat: no-repeat;
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        top: 6px;
+        left: 0;
+      }
+    }
+
+    .btn{
+      display: block;
+      position: relative;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      width: 40px;
+      height: 40px;
+      background-color: transparent;
+      box-sizing: border-box;
+    }
+
+    &_btnShare{
+
+      &::after {
+        content: '';
+        background-position: center;
+        background-image: url("../../../assets/img/card/share.svg");
+        background-repeat: no-repeat;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &_detailsInfoLabel{
+      display: block;
+      width: 40px;
+      height: 40px;
+
+      .icon{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+
+      }
+    }
+
+    .detailsInfo_input{
+      visibility: hidden;
+      display: none;
+    }
+  }
+
+  &_detailsInfo{
+    color: #FFFFFF;
+
+    &_title{
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 100%;
+      text-align: center;
+      margin: 0 0 5px;
+    }
+
+    &_description{
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 100%;
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .card {
+    max-width: 360px;
+    padding-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .card {
+    max-width: 310px;
+    padding-bottom: 20px;
+  }
+}

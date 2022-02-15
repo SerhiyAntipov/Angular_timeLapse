@@ -1,0 +1,34 @@
+.categoryName{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+
+  &_img{
+    width: 59px;
+    height: 59px;
+    display: block;
+  }
+
+  &_title{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 41px;
+    letter-spacing: 0.02em;
+    color: #a67200;
+    //text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
+
+    span{
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 41px;
+      letter-spacing: 0.02em;
+      color: #FFFFFF;
+      //text-transform: lowercase;
+    }
+  }
+}

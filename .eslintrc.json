@@ -1,0 +1,75 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": [
+          "tsconfig.app.json",
+          "tsconfig.spec.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        // "plugin:prettier/recommended",
+        "airbnb-base",
+        "plugin:@angular-eslint/recommended",
+        // This is required if you use inline templates in Components
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        /**
+         * Any TypeScript source code (NOT TEMPLATE) related rules you wish to use/reconfigure over and above the
+         * recommended set provided by the @angular-eslint project would go here.
+         */
+        "@angular-eslint/directive-selector": [
+          "error",
+          { "type": "attribute", "prefix": "app", "style": "camelCase" }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          { "type": "element", "prefix": "app", "style": "kebab-case" }
+        ],
+        // "prettier/prettier": ["error", { "parser": "angular" }],
+        "import/no-unresolved": 0,
+        "import/prefer-default-export": 0,
+        "no-useless-constructor": 0,
+        "import/extensions": 0,
+        "no-empty-function": 0,
+        "no-unused-vars": 0,
+        "@typescript-eslint/no-unused-vars": 0,
+        "class-methods-use-this": 0,
+        "no-console": 0,
+        "angular/window-service": 0,
+        "lines-between-class-members": 0,
+        "max-len": 0,
+        "no-unused-expressions": 0,
+        "dot-notation": 0,
+        "angular/document-service": 0,
+        "angular/timeout-service": 0,
+        "no-underscore-dangle": 0,
+        "no-trailing-spaces": 0,
+        "no-use-before-define": 0,
+        "import/no-extraneous-dependencies": 0,
+        "@angular-eslint/component-class-suffix": 0
+      },
+      "globals": {
+        "localStorage": true,
+        "fetch": true,
+        "window": true,
+        "navigator": true
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {
+        /**
+         * Any template/HTML related rules you wish to use/reconfigure over and above the
+         * recommended set provided by the @angular-eslint project would go here.
+         */
+        "@angular-eslint/template/no-negated-async": 0
+      }
+    }
+  ]
+}
